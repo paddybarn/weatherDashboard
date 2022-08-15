@@ -1,0 +1,9 @@
+.jumbotron{
+    background-color: navy;
+}
+.display-4{
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    font-weight: bold;
+}
