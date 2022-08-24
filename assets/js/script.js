@@ -12,29 +12,14 @@
 
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid=94f67dd7caa3a058d5be9579d1273e29
 
-var cityInputEl = document.querySelector("#city")
-var cityContainerInputEl = document.querySelector("#city-container")
-var repoSearchTerm = document.querySelector('#city-search-term');
-
-var formSubmitHandler = function (event) {
-    event.preventDefault();
-  
-    var city = cityInputEl.value.trim();
-  
-    if (city) {
-      getApi(city);
-  
-      cityContainerEl.textContent = '';
-      cityInputEl.value = '';
-    } else {
-      alert('Please enter a city');
-    }
-  };
 
 function getApi() {
-    // replace `octocat` with anyone else's GitHub username
-    var city = ""
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=city&appid=01c6acda042379425ee30a68789c29c5';
+  var cityInput = document.querySelector("#city").value
+  
+    console.log(cityInput)
+
+
+    var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=01c6acda042379425ee30a68789c29c5`
   
     fetch(requestUrl)
       .then(function (response) {
@@ -44,5 +29,9 @@ function getApi() {
         console.log(data);
       })
     }
-    
-getApi()
+
+$('.searchButton').on("click", function (event) {
+  // var cityInput = document.getElementById("city").value
+    event.preventDefault()
+    getApi()
+})
