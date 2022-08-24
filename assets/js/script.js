@@ -12,7 +12,7 @@
 
 //api.openweathermap.org/data/2.5/weather?q={city name}&appid=94f67dd7caa3a058d5be9579d1273e29
 
-
+const appendCards = document.getElementById("appendCards")
 function getApi() {
   var cityInput = document.querySelector("#city").value
   
@@ -27,8 +27,29 @@ function getApi() {
       })
       .then(function (data) {
         console.log(data);
+        const weatherData = data
+        renderWeatherCard(weatherData)
       })
     }
+
+function renderWeatherCard (weatherData){
+  var cardContainer = document.createElement("div")
+  var cardBodyDiv = document.createElement("div")
+  var cardHeader = document.createElement("h5")
+  var cardBody = document.createElement("p")
+  var cardButton = document.createElement("a")
+  cardContainer.append(cardBodyDiv)
+  cardBodyDiv.append(cardHeader, cardBody, cardButton)
+  cardContainer.setAttribute("class", "card w-100")
+  cardBodyDiv.setAttribute("class", "card-body")
+  cardHeader.setAttribute("class", "card-title")
+  cardBody.setAttribute("class", "card-text")
+  cardButton.setAttribute("class", "btn btn-primary")
+  cardButton.setAttribute("target", "_blank")
+  cardHeader.textContent = `${weatherData.city.name}`
+  appendCards.append(cardContainer)
+  // cardBody.textContent = `${weatherData.}`
+}
 
 $('.searchButton').on("click", function (event) {
   // var cityInput = document.getElementById("city").value
