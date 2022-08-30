@@ -1,14 +1,14 @@
 #Weather Dashboard
 
+https://paddybarn.github.io/weatherDashboard/
+
 ## Table of Contents
 
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Tests](#tests)
-- [License](#license)
-- [Questions](#questions)
+- [Photos](#photos)
 
 ## Description
 
@@ -26,16 +26,9 @@ Simply  enter your desired city name into the searchbar and hit search!  You wil
 
 This project is open source and contributions are welcomed.
 
-## Tests
+## Photos
+
+![image](https://user-images.githubusercontent.com/107075686/187544785-473ee207-cbd5-4983-974b-5a650c6588bd.png)
 
 
 
-## License
-
-MIT license
-
-## Questions
-
-If you have any questions please feel free to reach out to me through Github or email.
-
-- https://github.com/paddybarn
