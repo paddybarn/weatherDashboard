@@ -7,3 +7,9 @@
     color: whitesmoke;
     font-weight: bold;
 }
+
+.searchButton{
+    background-color: orangered;
+    color:antiquewhite;
+    margin: 20px;
+}

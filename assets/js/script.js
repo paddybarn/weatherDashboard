@@ -30,7 +30,8 @@ function getFiveDay() {
       })
       .then(function (data) {
         console.log(data);
-       
+        const fiveDay = data
+        renderFiveWeatherCard(fiveDay)
       })
     }
 
@@ -47,7 +48,7 @@ function getCurrent(){
     console.log(data);
     const weatherData = data
     renderCurWeatherCard(weatherData)
-    renderFiveWeatherCard(weatherData)
+    
   })
 }
 
@@ -60,16 +61,17 @@ function renderCurWeatherCard (weatherData){
   cardContainer.append(cardBodyDiv)
   cardBodyDiv.append(cardHeader, cardBody, cardButton)
   cardContainer.setAttribute("class", "card w-100")
+  cardContainer.setAttribute("style", "margin: 20px")
   cardBodyDiv.setAttribute("class", "card-body")
   cardHeader.setAttribute("class", "card-title")
   cardBody.setAttribute("class", "card-text")
   cardHeader.textContent = `${weatherData.name}`
-  cardBody.textContent = `${weatherData.weather[0].icon}`
+  // cardBody.textContent = `${weatherData.weather[0].icon}`
   cardBody.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
   appendCards.append(cardContainer)
 }
 
-function renderFiveWeatherCard (weatherData) {
+function renderFiveWeatherCard (fiveDay) {
   var cardContainer1 = document.createElement("div")
   var cardBodyDiv1 = document.createElement("div")
   var cardHeader1 = document.createElement("h5")
@@ -77,12 +79,13 @@ function renderFiveWeatherCard (weatherData) {
   cardContainer1.append(cardBodyDiv1)
   cardBodyDiv1.append(cardHeader1, cardBody1)
   cardContainer1.setAttribute("class", "card w-100")
+  cardContainer1.setAttribute("style", "margin: 20px")
   cardBodyDiv1.setAttribute("class", "card-body")
   cardHeader1.setAttribute("class", "card-title")
   cardBody1.setAttribute("class", "card-text")
-  cardHeader1.textContent = `${weatherData.name}`
-  cardBody1.textContent = `${weatherData.weather[0].icon}`
-  cardBody1.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
+  cardHeader1.textContent = `${fiveDay.city.name}`
+  // cardBody1.textContent = `${weatherData.weather[0].icon}`
+  cardBody1.textContent = `Temperature:  ${fiveDay.list[0].main.temp} Humidity:  ${fiveDay.list[0].main.humidity} Wind speed:  ${fiveDay.list[0].wind.speed}`
   appendFiveDay.append(cardContainer1)
   var cardContainer2 = document.createElement("div")
   var cardBodyDiv2 = document.createElement("div")
@@ -91,12 +94,13 @@ function renderFiveWeatherCard (weatherData) {
   cardContainer2.append(cardBodyDiv2)
   cardBodyDiv2.append(cardHeader2, cardBody2)
   cardContainer2.setAttribute("class", "card w-100")
+  cardContainer2.setAttribute("style", "margin: 20px")
   cardBodyDiv2.setAttribute("class", "card-body")
   cardHeader2.setAttribute("class", "card-title")
   cardBody2.setAttribute("class", "card-text")
-  cardHeader2.textContent = `${weatherData.name}`
-  cardBody2.textContent = `${weatherData.weather[0].icon}`
-  cardBody2.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
+  cardHeader2.textContent = `${fiveDay.city.name}`
+  // cardBody2.textContent = `${weatherData.weather[0].icon}`
+  cardBody2.textContent = `Temperature:  ${fiveDay.list[4].main.temp} Humidity:  ${fiveDay.list[4].main.humidity} Wind speed:  ${fiveDay.list[4].wind.speed}`
   appendFiveDay.append(cardContainer2)
   var cardContainer3 = document.createElement("div")
   var cardBodyDiv3 = document.createElement("div")
@@ -105,12 +109,13 @@ function renderFiveWeatherCard (weatherData) {
   cardContainer3.append(cardBodyDiv3)
   cardBodyDiv3.append(cardHeader3, cardBody3)
   cardContainer3.setAttribute("class", "card w-100")
+  cardContainer3.setAttribute("style", "margin: 20px")
   cardBodyDiv3.setAttribute("class", "card-body")
   cardHeader3.setAttribute("class", "card-title")
   cardBody3.setAttribute("class", "card-text")
-  cardHeader3.textContent = `${weatherData.name}`
-  cardBody3.textContent = `${weatherData.weather[0].icon}`
-  cardBody3.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
+  cardHeader3.textContent = `${fiveDay.city.name}`
+  // cardBody3.textContent = `${weatherData.weather[0].icon}`
+  cardBody3.textContent = `Temperature:  ${fiveDay.list[14].main.temp} Humidity:  ${fiveDay.list[14].main.humidity} Wind speed:  ${fiveDay.list[14].wind.speed}`
   appendFiveDay.append(cardContainer3)
   var cardContainer4 = document.createElement("div")
   var cardBodyDiv4 = document.createElement("div")
@@ -119,12 +124,13 @@ function renderFiveWeatherCard (weatherData) {
   cardContainer4.append(cardBodyDiv4)
   cardBodyDiv4.append(cardHeader4, cardBody4)
   cardContainer4.setAttribute("class", "card w-100")
+  cardContainer4.setAttribute("style", "margin: 20px")
   cardBodyDiv4.setAttribute("class", "card-body")
   cardHeader4.setAttribute("class", "card-title")
   cardBody4.setAttribute("class", "card-text")
-  cardHeader4.textContent = `${weatherData.name}`
-  cardBody4.textContent = `${weatherData.weather[0].icon}`
-  cardBody4.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
+  cardHeader4.textContent = `${fiveDay.city.name}`
+  // cardBody4.textContent = `${weatherData.weather[0].icon}`
+  cardBody4.textContent = `Temperature:  ${fiveDay.list[22].main.temp} Humidity:  ${fiveDay.list[22].main.humidity} Wind speed:  ${fiveDay.list[22].wind.speed}`
   appendFiveDay.append(cardContainer4)
   var cardContainer5 = document.createElement("div")
   var cardBodyDiv5 = document.createElement("div")
@@ -133,27 +139,60 @@ function renderFiveWeatherCard (weatherData) {
   cardContainer5.append(cardBodyDiv5)
   cardBodyDiv5.append(cardHeader5, cardBody5)
   cardContainer5.setAttribute("class", "card w-100")
+  cardContainer5.setAttribute("style", "margin: 20px")
   cardBodyDiv5.setAttribute("class", "card-body")
   cardHeader5.setAttribute("class", "card-title")
   cardBody5.setAttribute("class", "card-text")
-  cardHeader5.textContent = `${weatherData.name}`
-  cardBody5.textContent = `${weatherData.weather[0].icon}`
-  cardBody5.textContent = `Temperature:  ${weatherData.main.temp} Humidity:  ${weatherData.main.humidity} Wind speed:  ${weatherData.wind.speed}`
+  cardHeader5.textContent = `${fiveDay.city.name}`
+  // cardBody5.textContent = `${weatherData.weather[0].icon}`
+  cardBody5.textContent = `Temperature:  ${fiveDay.list[30].main.temp} Humidity:  ${fiveDay.list[22].main.humidity} Wind speed:  ${fiveDay.list[22].wind.speed}`
   appendFiveDay.append(cardContainer5)
 }
 
 function searchHistory () {
   var cityInput = document.querySelector("#city").value
   localStorage.setItem('citySearch', cityInput)
-  let cityHistory = localStorage.getItem('citySearch')
+  var cityHistory = localStorage.getItem('citySearch')
 
   var button = document.createElement("button")
   button.setAttribute("type", "button")
+  button.setAttribute("id", "history")
   button.setAttribute("class", "btn btn-primary btn-lg")
   button.textContent = `${cityHistory}`
   appendButton.append(button)
 
 }
+
+$('#history').on("click", function () {
+
+  var cityInput = document.querySelector("#city").value
+  localStorage.setItem('citySearch', cityInput)
+  var cityHistory = localStorage.getItem('citySearch')
+
+  var secondUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityHistory},us&units=imperial&appid=01c6acda042379425ee30a68789c29c5`
+
+  fetch(secondUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    const weatherData = data
+    renderCurWeatherCard(weatherData)
+  })
+
+  var requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityHistory},us&units=imperial&appid=01c6acda042379425ee30a68789c29c5`
+  
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        const fiveDay = data
+    renderFiveWeatherCard(fiveDay)
+  })
+})
 
 $('.searchButton').on("click", function (event) {
   // var cityInput = document.getElementById("city").value
